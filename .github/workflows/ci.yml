@@ -4,9 +4,9 @@
 name: Node.js CI - Continuous Integration
 
 on: # these are events that trigger sets of actions defined in jobs
-  push: # events & branches on which this events happen
-    branches: [ main ]
-  pull_request:
+  #push: # events & branches on which this events happen
+  #  branches: [ main ]
+   pull_request:
     branches: [ main ]
 
 jobs:
@@ -16,7 +16,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [12.x, 14.x, 16.x]
+        node-version: [16.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
@@ -30,6 +30,6 @@ jobs:
         node-version: 16
         cache: 'npm'
     - name: command description - npm ci
-      run: npm ci
+      run: npm i
     - run: npm run build --if-present
-    - run: npm test
+   # - run: npm test
