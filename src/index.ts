@@ -1,3 +1,4 @@
-console.log('hello')
-
-console.log('testing github actions for push')
+async function run() {
+    console.log('hello world')
+}
+run()

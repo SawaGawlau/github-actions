@@ -2,7 +2,20 @@
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
 name: Node.js CI
+description: greeting action
+author: sawa
 
+inputs:
+  GITHUB_TOKEN:
+    description: 'Github token'
+    required: true
+  TENOR_TOKEN:
+    description: 'Tenor api token'
+    required: true
+    
+runs:
+  using: 'node16'
+  main: 'dist/index.js'
 on:
   push:
     branches: [ main ]
