@@ -28,10 +28,11 @@ jobs: # list of jobs we want to run
         cache: 'npm'
       run: npm ci # install all dependencies
     # run: npm run build --if-present # if build script exists
-    # run: npm test
-    - name: Run a one-line script
-      run: echo Hello, world!
-    - name: npm install and test
-      run: 
-        npm i
-        npm test
+
+    - run: npm test
+    - name: send default message
+      uses: appleboy/discord-action@master
+      with:
+        webhook_id: ${{ secrets.WEBHOOK_ID }}
+        webhook_token: ${{ secrets.WEBHOOK_TOKEN }}
+
