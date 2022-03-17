@@ -1,0 +1,25 @@
+name: Release npm package
+
+on: # WHAT'S TRIGGER GITHUB ACTION
+  push:
+    branch:
+      - master
+
+jobs: # list of jobs we want to run
+  # this workflow contains a single job called "build"
+  release: 
+    name: release
+    # the type of runner that job will run on
+    runs-on: self-hosted #because we are going to work on our virtual private server / ubuntu for linux/windows etc
+    steps:
+      - uses: actions/checkout@master
+      - uses: actions/setup-node@v1
+        with:
+          node-version: "16.x"
+      - run: npm ci
+      - run: npm run build --if-present
+      - run: npm run test
+        env: 
+          GITHUB_TOKEN: ${{secretes.GITHUB_TOKEN}}
+          NPM_TOKEN: ${{secretes.NPM_TOKEN}}
+
