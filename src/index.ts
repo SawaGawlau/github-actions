@@ -1,4 +1,8 @@
-async function run() {
-    console.log('hello world')
+class GitHubActions {
+    gitHubActions = async () => {
+        const test: string = 'test'
+        console.log(test)
+        return test
+      }
 }
-run()
+export default new GitHubActions()

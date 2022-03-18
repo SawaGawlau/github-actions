@@ -1,8 +1,8 @@
 name: Github Action for node api
 
 on: # WHAT'S TRIGGER GITHUB ACTION
-   pull_request:
-    branches: [ main ]
+   #pull_request:
+    #branches: [ main ]
    push:
     branches: [main]
 
