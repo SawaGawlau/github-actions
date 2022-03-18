@@ -26,4 +26,4 @@ jobs: # list of jobs we want to run
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-     # run: npm ci # install all dependencies
+    - run: npm install # install all dependencies
