@@ -4,7 +4,7 @@ on: # WHAT'S TRIGGER GITHUB ACTION
    #pull_request:
     #branches: [ main ]
    push:
-    branches: [main]
+    branches: [sawa]
 
 jobs: # list of jobs we want to run
   # this workflow contains a single job called "build"
