@@ -1,16 +1,19 @@
-name: Github Action for node api
+# This workflow will do a clean install of node dependencies, 
+# build the source code and run tests across different versions of node
+
+
+name: Build action for node.js
 
 on: # WHAT'S TRIGGER GITHUB ACTION
-   #pull_request:
+  push #pull_request:
     #branches: [ main ]
-   push:
-    branches: [main]
+   # you can skip that part and react on every push 
 
 jobs: # list of jobs we want to run
   # this workflow contains a single job called "build"
   build: 
     # the type of runner that job will run on
-    runs-on: self-hosted #because we are going to work on our virtual private server / ubuntu for linux/windows etc
+    runs-on: self-hosted # because we are going to work on our virtual private server / ubuntu for linux/windows etc
 
     strategy:
       matrix:
@@ -18,13 +21,17 @@ jobs: # list of jobs we want to run
         node-version: [16.x] 
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
-    # stepes represent a sequence of tasks that will be executed as part of the job
+    # steps represent a sequence of tasks that will be executed as part of the job
     steps:
-   # - uses: actions/checkout@v2 # 
-    - name: Use Node.js ${{ matrix.node-version }} # set up node.js environment
-      uses: actions/setup-node@v2
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-    - run: npm install # install all dependencies
+    - run: npm install
+    - run: npm run build --if-present
+    - run: npm run test
+    # run: npm install # install all dependencies
     # chce miec zasinstalowane node_modules ???
+    # - name: Build with npm
+    #  run: npm build --if-present
