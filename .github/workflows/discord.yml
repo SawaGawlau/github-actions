@@ -1,35 +1,18 @@
-name: Github Action for node api
-
-on: # WHAT'S TRIGGER GITHUB ACTION
-  create # Branch or tag created
-
-jobs: # list of jobs we want to run
-  # this workflow contains a single job called "build"
-  build: 
-    # the type of runner that job will run on
-    runs-on: self-hosted #because we are going to work on our virtual private server / ubuntu for linux/windows etc
-
-    strategy:
-      matrix:
-      # [12.x, 14.x, 16.x] in this case jobs will be done three times - each one for every node version(we leave one) 
-        node-version: [16.x] 
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-
-    # stepes represent a sequence of tasks that will be executed as part of the job
-    steps:
-    - uses: actions/checkout@v2 # 
-    - name: Use Node.js ${{ matrix.node-version }} # set up node.js environment
-      uses: actions/setup-node@v2
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-      run: npm ci # install all dependencies
-    # run: npm run build --if-present # if build script exists
-
-    - run: npm test
-    - name: send default message
-      uses: appleboy/discord-action@master
-      with:
-        webhook_id: ${{ secrets.WEBHOOK_ID }}
-        webhook_token: ${{ secrets.WEBHOOK_TOKEN }}
-
+- name: Test Info
+    uses: rjstone/discord-webhook-notify@v1
+    with:
+        severity: info #  level of the notification
+        details: Test succeeded.
+        webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
+- name: Test Warn
+    uses: rjstone/discord-webhook-notify@v1
+    with:
+        severity: warn
+        details: Test warning.
+        webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
+- name: Test Error
+    uses: rjstone/discord-webhook-notify@v1
+    with:
+        severity: error
+        details: Test error.
+        webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
