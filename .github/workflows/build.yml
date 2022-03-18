@@ -27,5 +27,5 @@ jobs: # list of jobs we want to run
         cache: 'npm'
       run: npm install # install all dependencies
     # chce miec zasinstalowane node_modules ???
-    - name: Build with npm
-       run: npm build --if-present
+    # - name: Build with npm
+    #  run: npm build --if-present
