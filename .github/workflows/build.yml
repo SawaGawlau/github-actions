@@ -27,12 +27,5 @@ jobs: # list of jobs we want to run
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
       run: npm ci # install all dependencies
-    # run: npm run build --if-present # if build script exists
-
-    - run: npm test
-    - name: send default message
-      uses: appleboy/discord-action@master
-      with:
-        webhook_id: ${{ secrets.WEBHOOK_ID }}
-        webhook_token: ${{ secrets.WEBHOOK_TOKEN }}
+      run: npm run build --if-present # if build script exists
 
