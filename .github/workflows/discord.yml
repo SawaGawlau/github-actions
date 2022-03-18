@@ -1,10 +1,7 @@
 name: Github Action for node api
 
 on: # WHAT'S TRIGGER GITHUB ACTION
-   pull_request:
-    branches: [ main ]
-   push:
-    branches: [main]
+  create # Branch or tag created
 
 jobs: # list of jobs we want to run
   # this workflow contains a single job called "build"
