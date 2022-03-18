@@ -1,9 +1,9 @@
 name: Build action for node.js
 
 on: # WHAT'S TRIGGER GITHUB ACTION
-   #pull_request:
+  push #pull_request:
     #branches: [ main ]
-   push # you can skip that part and react on every push 
+   # you can skip that part and react on every push 
 
 jobs: # list of jobs we want to run
   # this workflow contains a single job called "build"
