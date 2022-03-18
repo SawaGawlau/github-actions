@@ -28,5 +28,4 @@ jobs: # list of jobs we want to run
       run: npm install # install all dependencies
     # chce miec zasinstalowane node_modules ???
     - name: Build with npm
-       working directory: ./src 
        run: npm build --if-present
