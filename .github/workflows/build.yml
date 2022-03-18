@@ -4,7 +4,7 @@ on: # WHAT'S TRIGGER GITHUB ACTION
    #pull_request:
     #branches: [ main ]
    push:
-    branches: [sawa]
+    branches: [main]
 
 jobs: # list of jobs we want to run
   # this workflow contains a single job called "build"
@@ -27,3 +27,4 @@ jobs: # list of jobs we want to run
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: npm install # install all dependencies
+    # chce miec zasinstalowane node_modules ???
