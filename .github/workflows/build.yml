@@ -25,7 +25,7 @@ jobs: # list of jobs we want to run
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-      run: npm install # install all dependencies
+    # run: npm install # install all dependencies
     # chce miec zasinstalowane node_modules ???
     # - name: Build with npm
     #  run: npm build --if-present
