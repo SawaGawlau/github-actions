@@ -7,16 +7,15 @@ on: # WHAT TRIGGERS GITHUB ACTION
     #branches: [ main ]
    # you can skip that part and react on every push 
 
-jobs: # list of jobs we want to run
-  # this workflow contains a single job called "build"
-  whatever: 
+jobs: # list of jobs we want to run, you can have multiple list of jobs, ehy will run in parallel
+  build: # name is up to you
     # the type of runner that job will run on
     runs-on: self-hosted # because we are going to work on our virtual private server / ubuntu for linux/windows etc
 
     strategy:
       matrix:
-      # [12.x, 14.x, 16.x] in this case jobs will be done three times - each one for every node version
         node-version: [16.x] 
+        # [12.x, 14.x, 16.x] in this case jobs will be done three times - each one for every node version
         # os: [macos-x, windows-x, ubuntu-x] we can specify operating systems 
 
     # steps represent a sequence of tasks that will be executed as part of the job
