@@ -1,10 +1,8 @@
 # This workflow will do a clean install of node dependencies, 
 # build the source code and run tests across different versions of node
-
-
 name: Build action for node.js
 
-on: # WHAT'S TRIGGER GITHUB ACTION
+on: # WHAT TRIGGERS GITHUB ACTION
   push #pull_request:
     #branches: [ main ]
    # you can skip that part and react on every push 
@@ -17,15 +15,15 @@ jobs: # list of jobs we want to run
 
     strategy:
       matrix:
-      # [12.x, 14.x, 16.x] in this case jobs will be done three times - each one for every node version(we leave one) 
+      # [12.x, 14.x, 16.x] in this case jobs will be done three times - each one for every node version
         node-version: [16.x] 
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+        # os: [macos-x, windows-x, ubuntu-x] we can specify operating systems 
 
     # steps represent a sequence of tasks that will be executed as part of the job
     steps:
     - uses: actions/checkout@v2
     - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
+    - uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
     
@@ -37,7 +35,4 @@ jobs: # list of jobs we want to run
 
     - name: Run tests
       run: npm run test
-    # run: npm install # install all dependencies
-    # chce miec zasinstalowane node_modules ???
-    # - name: Build with npm
-    #  run: npm build --if-present
+
