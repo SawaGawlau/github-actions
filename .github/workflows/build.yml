@@ -7,7 +7,7 @@ on: # WHAT TRIGGERS GITHUB ACTION
     #branches: [ main ]
    # you can skip that part and react on every push 
 
-jobs: # list of jobs we want to run, you can have multiple list of jobs, ehy will run in parallel
+jobs: # list of jobs we want to run, you can have multiple list of jobs, they will run in parallel
   build: # name is up to you
     # the type of runner that job will run on
     runs-on: self-hosted # because we are going to work on our virtual private server / ubuntu for linux/windows etc
