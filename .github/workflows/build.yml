@@ -9,7 +9,7 @@ on: # WHAT TRIGGERS GITHUB ACTION
 
 jobs: # list of jobs we want to run
   # this workflow contains a single job called "build"
-  build: 
+  whatever: 
     # the type of runner that job will run on
     runs-on: self-hosted # because we are going to work on our virtual private server / ubuntu for linux/windows etc
 
