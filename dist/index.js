@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const app = (0, express_1.default)();
 app.get('/', (req, res) => {
-    res.send('HELLO WORLD');
+    res.send('HELLO WORLD test');
 });
 /*
 connect to instance
@@ -17,5 +17,6 @@ ssh -i "~/.ssh/saws-key-pair.pem" ec2-user@ec2-18-197-75-173.eu-central-1.comput
 */
 app.listen(3000, () => {
     console.log('Start aplikacji na porcie 3000!');
+    console.log('dziala czy nie dziala???');
 });
 //# sourceMappingURL=index.js.map
