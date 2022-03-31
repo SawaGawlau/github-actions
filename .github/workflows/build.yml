@@ -5,7 +5,7 @@
 name: Build action for node.js
 
 on: # WHAT'S TRIGGER GITHUB ACTION
-  pull_request # push
+  push # push
     #branches: [ main ]
    # you can skip that part and react on every push 
 

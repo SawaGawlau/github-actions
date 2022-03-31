@@ -1,6 +1,6 @@
 name: Node CI
 
-on: fork
+on: pull_request
 
 jobs:
   build:
