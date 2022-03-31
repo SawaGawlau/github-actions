@@ -1,6 +1,6 @@
 name: Node CI
 
-on: [merge]
+on: fork
 
 jobs:
   build:
