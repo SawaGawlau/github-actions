@@ -1,6 +1,6 @@
 name: Node CI
 
-on: [merge request]
+on: [merge]
 
 jobs:
   build:
