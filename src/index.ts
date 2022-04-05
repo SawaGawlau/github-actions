@@ -15,6 +15,6 @@ then:
 ssh -i "~/.ssh/saws-key-pair.pem" ec2-user@ec2-18-197-75-173.eu-central-1.compute.amazonaws.com
 */
 
-app.listen(3000, () => {
+app.listen(4000, () => {
     console.log('Start aplikacji na porcie 3000!')
   })
