@@ -2,11 +2,9 @@ on:
     push:
         branches:
             - main
-    pull_request:
-
 jobs:
     deploy:
-        runs-on: ubuntu-latest
+        runs-on: linux
         steps:
             -   name: Configure AWS credentials
                 uses: aws-actions/configure-aws-credentials@v1
@@ -18,11 +16,11 @@ jobs:
             -   name: Create CodeDeploy Deployment
                 id: deploy
                 run: |
-          # Assuming the Deployment Group is already setup
-          aws deploy create-deployment \
-            --application-name CodeDeploy-tuto \
-            --deployment-group-name CodeDeploy-tuto \
-            --deployment-config-name CodeDeployDefault.OneAtATime \
-        #    --github-location repository=${{ github.repository }},commitId=${{ github.sha }}
+            # Assuming the Deployment Group is already setup
+            aws deploy create-deployment \
+                --application-name CodeDeploy-tuto \
+                --deployment-group-name CodeDeploy-tuto \
+                --deployment-config-name CodeDeployDefault.OneAtATime \
+            #    --github-location repository=${{ github.repository }},commitId=${{ github.sha }}
 
  
