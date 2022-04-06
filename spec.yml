@@ -1,0 +1,19 @@
+branch_config:
+    wip\/.*: ~
+
+    main:
+        deploymentGroupName: demo-deploy-group
+        deploymentGroupConfig:
+            serviceRoleArn: arn:aws:iam::1234567890:role/CodeDeployProductionRole
+            ec2TagFilters:
+                - { Type: KEY_AND_VALUE, Key: Name, Value: CodeDeploy-githubactions }
+        deploymentConfig:
+            autoRollbackConfiguration:
+                enabled: true
+
+    '.*':
+        deploymentGroupName: $BRANCH.staging.acme.tld
+        deploymentGroupConfig:
+            serviceRoleArn: arn:aws:iam::1234567890:role/CodeDeployStagingRole
+            ec2TagFilters:
+                - { Type: KEY_AND_VALUE, Key: Name, Value: CodeDeploy-githubactions }
