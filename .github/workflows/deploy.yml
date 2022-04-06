@@ -1,7 +1,7 @@
 on:
     push:
         branches:
-            - main
+            - demo
     pull_request:
 
 jobs:
@@ -13,6 +13,13 @@ jobs:
                     aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
                     aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
                     aws-region: ${{ secrets.AWS_REGION }}
-            -   uses: actions/checkout@v2
-            -   id: deploy
-                uses: webfactory/create-aws-codedeploy-deployment@v0.2.2
+            #-   id: deploy
+            #    uses: webfactory/create-aws-codedeploy-deployment@v0.2.2
+            -   name: Create CodeDeploy Deployment
+                id: deploy
+                run: |
+                aws deploy create-deployment \
+                    --application-name "app-name" \
+                    --deployment-group-name "deply-app-ec2" \
+                    --deployment-config-name CodeDeployDefault.OneAtATime \
+                    --github-location repository=${{ github.repository }},commitId=${{ github.sha }}
