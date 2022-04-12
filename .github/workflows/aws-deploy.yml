@@ -6,7 +6,7 @@ on:
             - main
 
 env:
-  applicationfolder: github-actions
+  applicationfolder: my-app
   AWS_REGION: eu-central-1 ##region##
   S3BUCKET: 1gpxskc2tmqns ##s3-bucket## 
 
