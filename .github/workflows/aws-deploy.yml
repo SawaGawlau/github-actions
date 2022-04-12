@@ -36,9 +36,9 @@ jobs:
       #  working-directory: src #${{ env.applicationfolder }}
       #  run: github-actions/.github/scripts/build.sh
 
-      - name: Upload Artifact to s3
-        working-directory: src/target #${{ env.applicationfolder }}/target
-        run: aws s3 cp *.war s3://${{ env.S3BUCKET }}/
+    #  - name: Upload Artifact to s3
+     #   working-directory: src/target #${{ env.applicationfolder }}/target
+     #   run: aws s3 cp *.war s3://${{ env.S3BUCKET }}/
         
   deploy:
     needs: build
