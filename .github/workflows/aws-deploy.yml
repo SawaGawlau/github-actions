@@ -6,7 +6,7 @@ on:
             - main
 
 env:
-  applicationfolder: my-app
+  applicationfolder: src
   AWS_REGION: eu-central-1 ##region##
   S3BUCKET: 1gpxskc2tmqns ##s3-bucket## 
 
@@ -33,11 +33,11 @@ jobs:
 
       - name: Build and Package Maven
         id: package
-        working-directory: ${{ env.applicationfolder }}
+        working-directory: src #${{ env.applicationfolder }}
         run: $GITHUB_WORKSPACE/.github/scripts/build.sh
 
       - name: Upload Artifact to s3
-        working-directory: ${{ env.applicationfolder }}/target
+        working-directory: src/target #${{ env.applicationfolder }}/target
         run: aws s3 cp *.war s3://${{ env.S3BUCKET }}/
         
   deploy:
@@ -57,4 +57,4 @@ jobs:
     - run: |
         echo "Deploying branch ${{ env.GITHUB_REF }} to ${{ github.event.inputs.environment }}"
         commit_hash=`git rev-parse HEAD`
-        aws deploy create-deployment --application-name CodeDeployAppNameWithASG --deployment-group-name CodeDeployGroupName --github-location repository=$GITHUB_REPOSITORY,commitId=$commit_hash --ignore-application-stop-failures
+        aws deploy create-deployment --src CodeDeployAppNameWithASG --deployment-group-name CodeDeployGroupName --github-location repository=$GITHUB_REPOSITORY,commitId=$commit_hash --ignore-application-stop-failures
