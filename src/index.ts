@@ -4,7 +4,7 @@ import { Request, Response } from 'express'
 const app: Application = express()
 
 app.get('/', (req: Request, res: Response) => {
-    res.send('checking port 4000')
+    res.send('checking port 3000')
 })
 
 /*
