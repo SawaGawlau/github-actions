@@ -4,7 +4,7 @@ import { Request, Response } from 'express'
 const app: Application = express()
 
 app.get('/', (req: Request, res: Response) => {
-    res.send('checking CodeDeploy Pipeline and new instance...')
+    res.send('checking CodeDeploy Pipeline after push...')
 })
 
 /*
