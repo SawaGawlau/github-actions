@@ -9,7 +9,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    steps:xs
+    steps:
       - name: Checkout the files
         uses: actions/checkout@v2
       - name: Configure AWS credentials
