@@ -4,7 +4,7 @@ import { Request, Response } from 'express'
 const app: Application = express()
 
 app.get('/', (req: Request, res: Response) => {
-    res.send('checking if pm2 is working fine')
+    res.send('checking if pm2 is working fine with pm2 start npm --name "app name" -- start')
 })
 
 /*
