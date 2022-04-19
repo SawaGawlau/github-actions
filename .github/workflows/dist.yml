@@ -1,0 +1,12 @@
+name: creating dist folder with plain js
+on:
+  push:
+    branches:
+      - deployment
+jobs:
+  compile-to-js:
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - run: npm install
+      - run: npm run build --if-present

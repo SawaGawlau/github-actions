@@ -25,5 +25,4 @@ jobs:
             --deployment-group-name app-group \
             --deployment-config-name CodeDeployDefault.OneAtATime \
             --github-location repository=${{ github.repository }},commitId=${{ github.sha }}
-        run: npm install
-        run: npm run build --if-present
+
