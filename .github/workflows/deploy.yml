@@ -22,7 +22,7 @@ jobs:
       - name: Deployment
         uses: easingthemes/ssh-deploy@main
         env:
-          SSH_PRIVATE_KEY: "ec2-linux"
+          SSH_PRIVATE_KEY: "ec2-linux.pem"
           REMOTE_HOST: "ec2-54-93-74-176.eu-central-1.compute.amazonaws.com"
           REMOTE_USER: "ec2-user"
           TARGET: "/home/ec2-user/anotherFolder"
