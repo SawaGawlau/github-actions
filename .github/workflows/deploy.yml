@@ -1,8 +1,9 @@
 on:
     push:
         branches:
-            - demo
+            - main
     pull_request:
+            - main
 
 jobs:
     deploy:
