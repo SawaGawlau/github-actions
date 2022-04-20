@@ -1,17 +1,11 @@
 # This workflow will do a clean install of node dependencies, 
 # build the source code and run tests across different versions of node
-
-
-name: Build action for node.js
-
-on: # WHAT'S TRIGGER GITHUB ACTION
-    push:
-        branches:
-            - demo
-    pull_request:
-   # push
-    #branches: [ main ]
-   # you can skip that part and react on every push 
+name: Build
+on:
+  push:
+    branches: [deployment]
+  pull_request:
+    branches: [xx]
 
 jobs: # list of jobs we want to run
   # this workflow contains a single job called "build"
@@ -33,7 +27,7 @@ jobs: # list of jobs we want to run
       with:
         node-version: ${{ matrix.node-version }}
     - run: npm install
-    - run: npm run build --if-present
+    - run: npm run build --if-present # doesnt work without sudo
     # - run: npm run test
     # run: npm install # install all dependencies
     # chce miec zasinstalowane node_modules ???
