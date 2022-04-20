@@ -3,9 +3,7 @@
 name: Build
 on:
   push:
-    branches: [deployment]
-  pull_request:
-    branches: [xx]
+    branches: [main]
 
 jobs: # list of jobs we want to run
   # this workflow contains a single job called "build"
