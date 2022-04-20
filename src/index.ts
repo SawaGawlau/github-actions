@@ -4,7 +4,7 @@ import { Request, Response } from 'express'
 const app: Application = express()
 
 app.get('/', (req: Request, res: Response) => {
-    res.send('checking new script')
+    res.send('checking if pm2 is building an app')
 })
 
 /*
@@ -17,5 +17,5 @@ ssh -i "~/.ssh/saws-key-pair.pem" ec2-user@ec2-18-197-75-173.eu-central-1.comput
 
 app.listen(3000, () => {
     console.log('Start aplikacji na porcie 3000!')
-    console.log('checking new script')
+    console.log('checking if pm2 is building an app')
   })
