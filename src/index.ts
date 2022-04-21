@@ -18,4 +18,5 @@ ssh -i "~/.ssh/saws-key-pair.pem" ec2-user@ec2-18-197-75-173.eu-central-1.comput
 app.listen(3000, () => {
     console.log('Start aplikacji na porcie 3000!')
     console.log('checking if pm2 is building an app')
+    console.log('user data check')
   })
