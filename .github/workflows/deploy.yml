@@ -26,6 +26,6 @@ jobs:
             --deployment-config-name CodeDeployDefault.OneAtATime \
             --github-location repository=${{ github.repository }},commitId=${{ github.sha }}
       - name: install dependencies and build
-        run: sudo npm install && sudo npm run build
+        run: cd /home/ec2-user/app && sudo npm install && sudo npm run build
  
 
