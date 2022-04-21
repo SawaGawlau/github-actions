@@ -25,6 +25,7 @@ jobs:
             --deployment-group-name app-group \
             --deployment-config-name CodeDeployDefault.OneAtATime \
             --github-location repository=${{ github.repository }},commitId=${{ github.sha }}
-        run: sudo npm install
-        run: sudo npm run build
+      - name: install dependencies and build
+        run: sudo npm install && sudo npm run build
+ 
 
