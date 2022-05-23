@@ -1,12 +1,12 @@
 name: Deploy-to-EC2
 on:
-    push:
-        branches:
-            - deploy
+  push:
+    branches:
+      - deploy
 
 jobs:
   deploy:
-    # needs: build
+   # needs: build
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the files
@@ -25,5 +25,3 @@ jobs:
             --deployment-group-name app-group \
             --deployment-config-name CodeDeployDefault.OneAtATime \
             --github-location repository=${{ github.repository }},commitId=${{ github.sha }}
- 
-
