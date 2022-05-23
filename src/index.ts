@@ -4,7 +4,7 @@ import { Request, Response } from 'express'
 const app: Application = express()
 
 app.get('/', (req: Request, res: Response) => {
-    res.send('HELLO world, restart code deploy agent')
+    res.send('HELLO world, install new code deploy agent')
 })
 
 /*
